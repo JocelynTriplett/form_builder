@@ -99,36 +99,48 @@ let formData = [
 
 function createFields(){
   let form = document.getElementById("fields");
+  let div = document.createElement("div");
+  div.classList.add("input-prepend");
+  let span = document.createElement("span");
+  span.classList.add("add-on");
+  let i = document.createElement("i");
 
-  for (let i = 0; i < formData.length; i++) {
+  for (let f = 0; f < formData.length; f++) {
     let input = document.createElement("input");
 
-    if (formData[i].type === "select"){
+
+    if (formData[f].type === "select"){
       let select = document.createElement("select");
       form.appendChild(select);
-      for (let o = 0; o < formData[i].options.length; o++) {
+      for (let o = 0; o < formData[f].options.length; o++) {
 
         let option = document.createElement("option");
-        option.setAttribute("value",formData[i].options[o].label);
-        let optionContent = document.createTextNode(formData[i].options[o].label);
+        option.setAttribute("value",formData[f].options[o].label);
+        let optionContent = document.createTextNode(formData[f].options[o].label);
         select.appendChild(option);
         option.appendChild(optionContent);
         console.log(select);
       }
     }
-    else if (formData[i].type === "textarea") {
+    else if (formData[f].type === "textarea") {
+      i.classList.add(formData[f].icon);
       let textarea = document.createElement("textarea");
-      textarea.id = formData[i].id;
-      textarea.setAttribute("placeholder", formData[i].label);
+      textarea.id = formData[f].id;
+      textarea.setAttribute("placeholder", formData[f].label);
       textarea.setAttribute("rows","3");
       textarea.setAttribute("cols","48");
-      form.appendChild(textarea);
-      console.log(textarea);
+      form.appendChild(div);
+      div.appendChild(span);
+      div.appendChild(textarea);
+      span.appendChild(i);
+
+
+      console.log(div);
     }
     else {
-    input.setAttribute("type", formData[i].type);
-    input.id = formData[i].id;
-    input.setAttribute("placeholder", formData[i].label);
+    input.setAttribute("type", formData[f].type);
+    input.id = formData[f].id;
+    input.setAttribute("placeholder", formData[f].label);
 
 
 
