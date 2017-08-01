@@ -97,4 +97,18 @@ let formData = [
 
 // -------- Your Code Goes Below this Line --------
 
+function createFields(){
+  let form = document.getElementById("fields");
 
+  for (let i = 0; i < formData.length; i++) {
+    let input = document.createElement("input");
+
+    input.setAttribute("type", formData[i].type);
+    input.id = formData[i].id;
+    input.setAttribute("placeholder", formData[i].label);
+    form.appendChild( input );
+    console.log(input);
+  }
+
+}
+createFields();
