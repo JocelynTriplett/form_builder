@@ -108,24 +108,21 @@ function createFields(){
       form.appendChild(select);
 
       let selectLanguage = document.createElement("option");
-
-      selectLanguage.setAttribute("disabled",'')
-      selectLanguage.setAttribute("selected",'')
-      let selectLanguageContent = document.createTextNode(formData[f].label)
+      selectLanguage.setAttribute("disabled",'');
+      selectLanguage.setAttribute("selected",'');
+      let selectLanguageContent = document.createTextNode(formData[f].label);
       select.appendChild(selectLanguage);
       selectLanguage.appendChild(selectLanguageContent);
+
       for (let o = 0; o < formData[f].options.length; o++) {
         let option = document.createElement("option");
-
         option.setAttribute("value",formData[f].options[o].label);
         let optionContent = document.createTextNode(formData[f].options[o].label);
         select.appendChild(option);
         option.appendChild(optionContent);
-
       }
-
-      console.log(select);
     }
+
     else if (formData[f].type === "textarea") {
       let textarea = document.createElement("textarea");
       textarea.id = formData[f].id;
@@ -133,22 +130,15 @@ function createFields(){
       textarea.setAttribute("rows","3");
       textarea.setAttribute("cols","48");
       form.appendChild(textarea);
-
-
-      console.log(textarea);
     }
+
     else {
     input.setAttribute("type", formData[f].type);
     input.id = formData[f].id;
     input.setAttribute("placeholder", formData[f].label);
-
-
-
-
     form.appendChild( input );
-    console.log(input);
     }
   }
-
 }
+
 createFields();
