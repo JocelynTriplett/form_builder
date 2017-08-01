@@ -106,15 +106,25 @@ function createFields(){
     if (formData[f].type === "select"){
       let select = document.createElement("select");
       form.appendChild(select);
-      for (let o = 0; o < formData[f].options.length; o++) {
 
+      let selectLanguage = document.createElement("option");
+
+      selectLanguage.setAttribute("disabled",'')
+      selectLanguage.setAttribute("selected",'')
+      let selectLanguageContent = document.createTextNode(formData[f].label)
+      select.appendChild(selectLanguage);
+      selectLanguage.appendChild(selectLanguageContent);
+      for (let o = 0; o < formData[f].options.length; o++) {
         let option = document.createElement("option");
+
         option.setAttribute("value",formData[f].options[o].label);
         let optionContent = document.createTextNode(formData[f].options[o].label);
         select.appendChild(option);
         option.appendChild(optionContent);
-        console.log(select);
+
       }
+
+      console.log(select);
     }
     else if (formData[f].type === "textarea") {
       let textarea = document.createElement("textarea");
