@@ -116,15 +116,26 @@ function createFields(){
         console.log(select);
       }
     }
+    else if (formData[i].type === "textarea") {
+      let textarea = document.createElement("textarea");
+      textarea.id = formData[i].id;
+      textarea.setAttribute("placeholder", formData[i].label);
+      textarea.setAttribute("rows","3");
+      textarea.setAttribute("cols","48");
+      form.appendChild(textarea);
+      console.log(textarea);
+    }
     else {
     input.setAttribute("type", formData[i].type);
     input.id = formData[i].id;
     input.setAttribute("placeholder", formData[i].label);
 
 
+
+
     form.appendChild( input );
     console.log(input);
-    } 
+    }
   }
 
 }
