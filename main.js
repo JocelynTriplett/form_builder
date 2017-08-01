@@ -99,15 +99,9 @@ let formData = [
 
 function createFields(){
   let form = document.getElementById("fields");
-  let div = document.createElement("div");
-  div.classList.add("input-prepend");
-  let span = document.createElement("span");
-  span.classList.add("add-on");
-  let i = document.createElement("i");
 
   for (let f = 0; f < formData.length; f++) {
     let input = document.createElement("input");
-
 
     if (formData[f].type === "select"){
       let select = document.createElement("select");
@@ -123,19 +117,15 @@ function createFields(){
       }
     }
     else if (formData[f].type === "textarea") {
-      i.classList.add(formData[f].icon);
       let textarea = document.createElement("textarea");
       textarea.id = formData[f].id;
       textarea.setAttribute("placeholder", formData[f].label);
       textarea.setAttribute("rows","3");
       textarea.setAttribute("cols","48");
-      form.appendChild(div);
-      div.appendChild(span);
-      div.appendChild(textarea);
-      span.appendChild(i);
+      form.appendChild(textarea);
 
 
-      console.log(div);
+      console.log(textarea);
     }
     else {
     input.setAttribute("type", formData[f].type);
