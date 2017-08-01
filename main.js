@@ -103,9 +103,25 @@ function createFields(){
   for (let i = 0; i < formData.length; i++) {
     let input = document.createElement("input");
 
+    if (formData[i].type === "select"){
+      let select = document.createElement("select");
+      form.appendChild(select);
+      for (let o = 0; o < formData[i].options.length; o++) {
+
+        let option = document.createElement("option");
+        option.setAttribute("value",formData[i].options[o].label);
+        let optionContent = document.createTextNode(formData[i].options[o].label);
+        select.appendChild(option);
+        option.appendChild(optionContent);
+        console.log(select);
+      }
+    }
+
     input.setAttribute("type", formData[i].type);
     input.id = formData[i].id;
     input.setAttribute("placeholder", formData[i].label);
+
+
     form.appendChild( input );
     console.log(input);
   }
