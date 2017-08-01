@@ -116,7 +116,7 @@ function createFields(){
         console.log(select);
       }
     }
-
+    else {
     input.setAttribute("type", formData[i].type);
     input.id = formData[i].id;
     input.setAttribute("placeholder", formData[i].label);
@@ -124,6 +124,7 @@ function createFields(){
 
     form.appendChild( input );
     console.log(input);
+    } 
   }
 
 }
